@@ -30,3 +30,13 @@ function offLineMinimum(strArr) {
 
 offLineMinimum(["1","2","E","E","3"]); // => '1,2'
 offLineMinimum(["4","E","1","E","2","E","3","E"]); // => '4,1,2,3'
+
+/*
+The reason for the code at 25th line.
+'push' method in JavaScript(Array type) returns the new length of the array.
+But, what this code need is the initially provided array.
+So it is important to return the array, before reduce function checks next element.
+
+However 'concat' methid returns the new array combining the elements of the provided array and concatenated elements.
+So it works without the return value of the array.
+(Check the mdn reduce method page: 'Flatten an array of arrays')
