@@ -18,6 +18,7 @@ This is a repo to share new learnings.
 
 ### Algorithm
 
+- [isAgeDiverse.js](https://github.com/JaeWC/TIL/blob/master/Algorithm/isAgeDiverse.js)
 - [sumConsecutives.js](https://github.com/JaeWC/TIL/blob/master/Algorithm/sumConsecutives.js)
 - [offLineMinimum.js](https://github.com/JaeWC/TIL/blob/master/Algorithm/offLineMinimum.js)
 
