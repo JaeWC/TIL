@@ -38,18 +38,18 @@ var fn = function(one, two) {
 var r = {r: 1}, g = {g: 1}, b = {b: 1}, y = {y: 1}
 r.method = fn;
 
-r.method(g, b);    						// {r: 1} , {g: 1} , {b: 1}
-fn(g, b); 		   						// window , {g: 1} , {b: 1}
-fn.call(r, g, b);  						// {r: 1} , {g: 1} , {b: 1}
-r.method.call(y, g, b); 				// {y: 1} , {g: 1} , {b: 1}
-setTimeout(fn, 1000);   				// window , undefined , undefined
+r.method(g, b);    			// {r: 1} , {g: 1} , {b: 1}
+fn(g, b); 		   		// window , {g: 1} , {b: 1}
+fn.call(r, g, b);  			// {r: 1} , {g: 1} , {b: 1}
+r.method.call(y, g, b); 		// {y: 1} , {g: 1} , {b: 1}
+setTimeout(fn, 1000);   		// window , undefined , undefined
 setTimeout(r.method, 1000);  		   // window , undefined , undefined
 setTimeout(function() {
     r.method(g, b);
-}, 1000);								// {r: 1} , {g: 1} , {b: 1}
-setTimeout(fn.bind(r), 1000);   		// {r: 1} , undefined , undefined
+}, 1000);				// {r: 1} , {g: 1} , {b: 1}
+setTimeout(fn.bind(r), 1000);   	// {r: 1} , undefined , undefined
 setTimeout(r.method.bind(r), 1000); 	// {r: 1} , undefined , undefined
-console.log(this);						// window
-new r.method(g, b);						// {} , {g: 1} , {b: 1}
+console.log(this);			// window
+new r.method(g, b);			// {} , {g: 1} , {b: 1}
 ```
 
