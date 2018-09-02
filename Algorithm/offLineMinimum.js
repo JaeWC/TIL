@@ -40,3 +40,4 @@ So it is important to return the array, before reduce function checks next eleme
 However 'concat' methid returns the new array combining the elements of the provided array and concatenated elements.
 So it works without the return value of the array.
 (Check the mdn reduce method page: 'Flatten an array of arrays')
+*/
