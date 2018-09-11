@@ -4,35 +4,63 @@
   - TDD(Test-driven development) is a software development process that relies on the repetition of a very shor development cycle
   - BDD(Behavior-driven development) combines the general techniques and principles of TDD. 
 
-- Chai has several interfaces that allow the developer to choose the most comfortable. The chain-capable BDD styles provide an expressive language & readable style, while the TDD assert style provides a more classical feel.
-  - **Expect** and **Should** is *BDD style* assertion
-  - **Assert** is *TDD style* assertion
+
+
+
+### Assert
+
+- The assert style is exposed through **assert** interface. This provides the classic assert-dot notation, similar to that packaged with node.js.
+- This assert module, however, provides several additional tests and is broswer compatible.
 
 ~~~javascript
-chai.should();
+var assert = require('chai').assert
+  , foo = 'bar'
+  , beverages = {tea: ['chai', 'matcha', 'oolong'] };
 
-foo.should.be.a('string');
-foo.should.equal('bar');
-foo.should.have.lengthOf(3);
-foo.should.have.property('flavors').with.lengthOf(3);
+assert.typeOf(foo, 'string');
+assert.typeOf(foo, 'string', 'foo is a string');
+assert.equal(foo, 'bar', 'foo equal "bar"');
+assert.lengthOf(foo, 3, 'foo\'s value has a length of 3');
+assert.lengthOf(beverages.tea, 3, 'beverages has 3 types of tea');
 ~~~
 
+
+
+## BDD
+
+> The BDD style comes in two flavors: **expect** and **should**. Both use the same chainable language to construct assertions, but they differ in ther way an assertion is initially constructed. 
+
+
+
+### Expect
+
+- Expect allows you to include arbitrary messages to prepend to any failed assertions that might occur.
+
 ~~~javascript
-var expect = chai.expect;
+var expect = require('chai').expect
+  , foo = 'bar'
+  , beverages = {tea: ['chai', 'matcha', 'oolong'] };
 
 expect(foo).to.be.a('string');
 expect(foo).to.equal('bar');
 expect(foo).to.have.lengthOf(3);
-expect(tea).to.have.property('flavors').with.lengthOf(3);
+expect(beverages).to.have.property('tea').with.lengthOf(3);
 ~~~
 
-~~~javascript
-var assert = chai.assert;
 
-assert.typeOf(foo, 'string');
-assert.equal(foo, 'bar');
-assert.lengthOf(foo, 3);
-assert.property(tea, 'flavors');
-assert.lengthOf(tea.flavors, 3);
+
+### Should
+
+- Should style extends each object with a should property to start your chain. 
+
+~~~javascript
+var should = require('chai').should()  // actually call the function
+  , foo = 'bar'
+  , beverages = {tea: ['chai', 'matcha', 'oolong'] };
+
+foo.should.be.a('string');
+foo.should.equal('bar');
+foo.should.have.lengthOf(3);
+beverages.should.have.property('tea').with.lengthOf(3);
 ~~~
 
