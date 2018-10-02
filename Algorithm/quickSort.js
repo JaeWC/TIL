@@ -3,7 +3,7 @@ function quickSort (array){
   if(array.length < 2) return array;
 
   var pivot = array[Math.floor(array.length/2)];
-  var middle = array.filter(data =>data === pivot);
+  var middle = array.filter(data => data === pivot);
 
   var lesser = quickSort(array.filter(data => data < pivot));
   var larger = quickSort(array.filter(data => data > pivot));
